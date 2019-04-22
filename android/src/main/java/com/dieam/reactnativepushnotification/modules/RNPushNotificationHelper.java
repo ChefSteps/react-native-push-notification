@@ -205,7 +205,9 @@ public class RNPushNotificationHelper {
                 }
             }
 
-            NotificationCompat.Builder notification = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
+            String notificationChannelId = bundle.getString("android_channel_id", NOTIFICATION_CHANNEL_ID);
+
+            NotificationCompat.Builder notification = new NotificationCompat.Builder(context, notificationChannelId)
                     .setContentTitle(title)
                     .setTicker(bundle.getString("ticker"))
                     .setVisibility(visibility)
